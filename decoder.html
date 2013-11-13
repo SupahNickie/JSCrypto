@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Document Decoder</title>
+  </head>
+  <body>
+    <h1>Message Decoder</h1>
+    <button id="decrypt" onclick="decode.getCodedMessage();">Get the message</button>
+    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
+
+    <script>
+      var decode = {
+        askPassword: function() {
+          this.password = prompt("Gimme the password, foo!")
+        },
+        getCypherText: function() {
+          this.cypherText = document.URL.split('?')[1]
+        },
+        getCodedMessage: function() {
+          this.askPassword()
+          this.getCypherText()
+          decoded = CryptoJS.AES.decrypt(this.cypherText, this.password).toString(CryptoJS.enc.Utf8)
+          alert("Your message was...\n\n" + decoded)
+        }
+      }
+    </script>
+  </body>
+</html>

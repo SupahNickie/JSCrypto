@@ -1,7 +1,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Document Encoder</title>
   </head>
   <body>
     <h1>Message Encoder</h1>
@@ -16,18 +16,18 @@
     <script>
       var encoder = {
         setMessage: function() {
-          var message = document.getElementById("message").value
-          return message
+          this.message = document.getElementById("message").value
+          // If you called "var message" instead, it would be a local variable
+          // If you called "message" instead, it would be a global variable
         },
         getPassword: function() {
-          var password = prompt("What do you want the password to be?")
-          return password
+          this.password = prompt("What do you want the password to be?")
         },
         setUrl: function() {
-
+          this.url = this.encrypt();
         },
         replaceMessageWithUrl: function () {
-
+          document.getElementById("message").value = document.URL.replace("encoder.html", "decoder.html?" + this.url)
         },
         encrypt: function() {
           cypher = CryptoJS.AES.encrypt(this.message, this.password)
@@ -38,7 +38,6 @@
         protect: function() {
           this.setMessage()
           this.getPassword()
-          //this.encrypt()
           this.setUrl()
           this.replaceMessageWithUrl()
         }
