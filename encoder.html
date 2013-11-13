@@ -17,9 +17,11 @@
       var encoder = {
         setMessage: function() {
           var message = document.getElementById("message").value
+          return message
         },
         getPassword: function() {
           var password = prompt("What do you want the password to be?")
+          return password
         },
         setUrl: function() {
 
@@ -36,8 +38,8 @@
         protect: function() {
           this.setMessage()
           this.getPassword()
+          //this.encrypt()
           this.setUrl()
-          this.encrypt()
           this.replaceMessageWithUrl()
         }
       }
