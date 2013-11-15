@@ -5,24 +5,10 @@
   </head>
   <body>
     <h1>Message Decoder</h1>
-    <button id="decrypt" onclick="decode.getCodedMessage();">Get the message</button>
-    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
+    <button id="decrypt">Get the message</button>
 
-    <script>
-      var decode = {
-        askPassword: function() {
-          this.password = prompt("Gimme the password, foo!")
-        },
-        getCypherText: function() {
-          this.cypherText = document.URL.split('?')[1]
-        },
-        getCodedMessage: function() {
-          this.askPassword()
-          this.getCypherText()
-          decoded = CryptoJS.AES.decrypt(this.cypherText, this.password).toString(CryptoJS.enc.Utf8)
-          alert("Your message was...\n\n" + decoded)
-        }
-      }
-    </script>
+    <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/aes.js"></script>
+    <script src="src/decoder.js"></script>
+
   </body>
 </html>
