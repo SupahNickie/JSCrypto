@@ -5,4 +5,3 @@ describe("Decoder", function () {
     expect(decoder.getCodedMessage()).toEqual("a test string");
   });
 });
-
