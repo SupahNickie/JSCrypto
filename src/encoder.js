@@ -11,7 +11,7 @@ var encoder = {
     this.url = this.encrypt();
   },
   replaceMessageWithUrl: function () {
-    document.getElementById("message").value = document.URL.replace("encoder.html", "decoder.html?" + this.url)
+    document.getElementById("message").value = "Overwrite encoder.html and replace the url with this: decoder.html?"+this.url
   },
   encrypt: function() {
     cypher = CryptoJS.AES.encrypt(this.message, this.password)
